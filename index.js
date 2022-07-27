@@ -19,7 +19,7 @@ app.set("view engine", "pug")
 app.use(express.static(path.join(__dirname,"public")))
 app.use(express.static('images')); 
 
-//set default input, also can replace later
+//set default input, will be replace with user's input
 var inputCity = 'Toronto';
 var cityLatitude = '43.651070';
 var cityLongitude = '-79.347015';
@@ -29,11 +29,11 @@ var attractions;
 
 //set up page routes
 app.get("/", (req,res) => {
+  //get input from user
   inputCity = req.query.city;
   console.log(inputCity)
   getResult(res);
 })
-
 
 
 //set up local host
@@ -42,18 +42,13 @@ app.listen(port, () => {
 })
 
 
-
-
-
-
 // //=======FUNCTIONS==========
 async function getResult(res)
 {
   
-  //GEOCODING
+  //====GEOCODING====
   //use Forward Reverse Geocoding api to change the input (city) into latitude and longtitude
   //reference: https://rapidapi.com/GeocodeSupport/api/forward-reverse-geocoding/
-
   const firstRequest = {
     method: 'GET',
     url: 'https://forward-reverse-geocoding.p.rapidapi.com/v1/forward',
@@ -71,9 +66,10 @@ async function getResult(res)
       console.log(response.data[0].lon);
     }).catch(function (error) {
   });    
-//HOTELS
-//use book.com api to fetch nearby hotels; reference https://rapidapi.com/tipsters/api/booking-com/
-/* DEFAULT IS SET AS TORONTO */
+
+  //====HOTELS====
+  //use book.com api to fetch nearby hotels; reference https://rapidapi.com/tipsters/api/booking-com/
+  /* DEFAULT IS SET AS TORONTO */
   const secondRequest = {
     method: 'GET',
     url: 'https://booking-com.p.rapidapi.com/v1/hotels/search-by-coordinates',
@@ -106,7 +102,7 @@ async function getResult(res)
       console.error(error);
   });
 
-  //ATTRACTIONS
+  //====ATTRACTIONS====
   //use Travel Advisor api to fetch nearby attractions/places; reference https://rapidapi.com/apidojo/api/travel-advisor/
   const thirdRequest = {
     method: 'GET',
@@ -128,18 +124,12 @@ async function getResult(res)
   
   await axios.request(thirdRequest).then(function (response) {
     attractions = response.data.data;
-  
-    // console.log(attractions);
   }).catch(function (error) {
     console.error(error);
   });
 
-
   //render multiple data in the same page
   res.render('index', { title: "Home", hotels, attractions })
-
-  
-// console.log(attractions)
 
 }
 
