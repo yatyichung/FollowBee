@@ -4,6 +4,10 @@ This website is created using Node.js. It allows user to enter a city they want 
 
 ---
 
+## Video Demo
+
+---
+
 ## Run the project
 
 1) Clone project "https://github.com/yatyichung/FollowBee.git"
