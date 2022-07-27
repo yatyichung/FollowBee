@@ -1,0 +1,56 @@
+extends layout 
+
+block layout-content
+    div(id="category-selection" class="container-fluid my-3")
+        ul
+            li(class="category px-5 py-2" num="1" id="category-default") Hotels 
+            li(class="category px-5 py-2" num="2" ) Attractions
+    div(id="category-content" class="container-fluid")
+        div(id="category1" class="category-content hotel-list container-fluid mb-3") 
+            div(class="row")
+                each h in hotels 
+                    div(class="col-6 col-sm-4 col-lg-3")
+                        a(href=`${h.url}` target="_blank" )
+                            div(class="a-card")
+                                img(class="result-image w-100"  src=`${h.max_1440_photo_url}` alt="")
+                                p(class="font-weight-bold") #{h.hotel_name}
+                                div(class="icon-text")
+                                    p
+                                        span
+                                            i(class="fa-solid fa-location-dot fa-lg mr-2")
+                                        span(class="font-weight-bold") Address: 
+                                        span #{h.address_trans}, #{h.city}
+                                div(class="icon-text")
+                                    p 
+                                        span 
+                                            i(class="fa-solid fa-hotel fa-lg mr-2")
+                                        span(class="font-weight-bold") Type: 
+                                        span #{h.accommodation_type_name}
+                                div(class="icon-text")
+                                    p 
+                                        span 
+                                            i(class="fa-regular fa-star fa-lg mr-2")
+                                        span(class="font-weight-bold") Review: 
+                                        span #{h.review_score} /10
+        div(id="category2" class="category-content attraction-list container-fluid")
+            div(class="row")
+                each a in attractions 
+                    div(class="col-6 col-sm-4 col-lg-3")
+                        img(class="result-image w-100" id ="attraction-image" src=`${a.photo.images.large.url}` alt=`${a.photo.caption}`)
+                        p(class="font-weight-bold") #{a.name}
+                        div(class="icon-text")
+                            p
+                                span
+                                    i(class="fa-solid fa-location-dot fa-lg mr-2")
+                                span(class="font-weight-bold") Address: 
+                                span #{a.address}
+                                - var address_null = a.address;
+                                address_null 
+                                    if address_null == "" ||  address_null == undefined||address_null == null
+                                        address_null Not available
+                        div(class="icon-text")
+                            p
+                                span
+                                    i(class="fa-regular fa-eye fa-lg mr-2")
+                                span(class="font-weight-bold") Reviewed by: 
+                                span #{a.num_reviews} users
