@@ -4,7 +4,11 @@ This website is created using Node.js. It allows user to enter a city they want 
 
 ---
 
-## Video Demo
+## Picture Demo
+
+<img width="550" alt="demopic1" src="https://user-images.githubusercontent.com/78622789/181376055-b11a5216-b2f9-46f5-8791-b652f46a9773.png">
+
+<img width="550" alt="demopic2" src="https://user-images.githubusercontent.com/78622789/181376100-5867a1ce-dee3-4867-97df-855179c8e5d3.png">
 
 ---
 
