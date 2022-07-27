@@ -1,3 +1,4 @@
+/*====DEFAULT STYLINGS====*/
 @import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400;500;600;700&family=Nunito:wght@400;500;700&display=swap');
 
 body {
@@ -28,9 +29,6 @@ a:link, a:visited, a:hover,a:active{
     width:80px;
 }
 
-/* #top-nav{
-    border-bottom: 8px solid #f8d151;
-} */
 
 #search-form{
     width:80%;
@@ -105,8 +103,6 @@ li{
     box-shadow: 0 2px 5px rgba(87, 87, 87, 0.2);
 }
 
-
-/*===category-selection===*/
 #category2 {
     display: none;
 }
@@ -117,7 +113,7 @@ li{
 
 
 
-/*----category-content----*/
+/*====category-content====*/
 
 .category-content p{
     margin: 10px;
@@ -127,8 +123,6 @@ li{
 .result-image {
    border-radius: 20px;
 }
-
-
 
 
 .icon-text i{
