@@ -1,6 +1,8 @@
 # <img width="30" src="https://user-images.githubusercontent.com/78622789/181378764-42969d2a-9069-483d-99cf-8eb18e61f2fe.png">FollowBee
 
-This website is created using Node.js. It allows user to enter a city they want to visit/travel, the website will then return a list of nearby hotels and attractions based on the location inputted.
+FolloBee allows user to enter a city they want to visit/travel, the website will then return a list of nearby hotels and attractions based on the location inputted. 
+
+This website is built using Node.js, Express.js, Pug, and Axios to fetch three APIs (<a href="https://rapidapi.com/GeocodeSupport/api/forward-reverse-geocoding/" target="_blank">Forward & Reverse Geocoding</a>, <a   href="https://rapidapi.com/tipsters/api/booking-com/" target="_blank">Booking.com</a>, <a href="https://rapidapi.com/apidojo/api/travel-advisor/"  target="_blank">Travel Advisor</a>).
 
 ---
 
@@ -15,7 +17,7 @@ This website is created using Node.js. It allows user to enter a city they want 
 ## Run the project
 
 1) Clone project "https://github.com/yatyichung/FollowBee.git"
-2) To install node_modeul run below code in command lin
+2) To install node_modeul run below code in command line
 
     ```nodejs
     npm install
