@@ -3,11 +3,7 @@ window.onload = function (){
     var formHandle = document.forms.searchForm;
     var inputCity = searchForm.city;
     var warningTest = document.getElementById("warning");
-    // document.getElementById("hello").src = "https://magsbc.com/wp-content/uploads/2022/07/placeholder.png"
 
-
-
-    //set variables
     /*
         check if a string contain number reference:
         https://dev.to/melvin2016/how-to-check-if-a-string-contains-at-least-one-number-using-regular-expression-regex-in-javascript-3n5h
