@@ -54,7 +54,7 @@ async function getResult(res)
     url: 'https://forward-reverse-geocoding.p.rapidapi.com/v1/forward',
     params: {city: `${inputCity}`, 'accept-language': 'en', polygon_threshold: '0.0'},
     headers: {
-      'X-RapidAPI-Key': '9d5bd35d8dmsh676b10602651945p167251jsn7bbe4e7e72d5',
+      'X-RapidAPI-Key': 'insertYourApiKey',
       'X-RapidAPI-Host': 'forward-reverse-geocoding.p.rapidapi.com'
     }
   };
@@ -89,7 +89,7 @@ async function getResult(res)
       page_number: '1'
     },
     headers: {
-      'X-RapidAPI-Key': '9d5bd35d8dmsh676b10602651945p167251jsn7bbe4e7e72d5',
+      'X-RapidAPI-Key': 'insertYourApiKey',
       'X-RapidAPI-Host': 'booking-com.p.rapidapi.com'
     }
   };
@@ -117,7 +117,7 @@ async function getResult(res)
       offset: '30'
     },
     headers: {
-      'X-RapidAPI-Key': '9d5bd35d8dmsh676b10602651945p167251jsn7bbe4e7e72d5',
+      'X-RapidAPI-Key': 'insertYourApiKey',
       'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com'
     }
   };
