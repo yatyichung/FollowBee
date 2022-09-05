@@ -1,4 +1,4 @@
-# <img width="30" src="https://user-images.githubusercontent.com/78622789/181378764-42969d2a-9069-483d-99cf-8eb18e61f2fe.png">FollowBee
+# <img width="30" src="https://user-images.githubusercontent.com/78622789/181378764-42969d2a-9069-483d-99cf-8eb18e61f2fe.png"> FollowBee
 
 FolloBee allows user to enter a city they want to visit/travel, the website will then return a list of nearby hotels and attractions based on the location inputted. 
 
@@ -14,7 +14,7 @@ This website is built using Node.js, Express.js, Pug, and Axios to fetch three A
 
 ---
 
-## Run the project
+## Run the project 🏃‍♀️
 
 1) Clone project "https://github.com/yatyichung/FollowBee.git"
 2) To install node_modeul run below code in command line
