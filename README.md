@@ -14,7 +14,7 @@ This website is built using Node.js, Express.js, Pug, and Axios to fetch three A
 
 ---
 
-## Run the project 🏃‍♀️
+## Run the project 
 
 1) Clone project "https://github.com/yatyichung/FollowBee.git"
 2) To install node_modeul run below code in command line
