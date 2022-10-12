@@ -31,7 +31,7 @@ var attractions;
 app.get("/", (req,res) => {
   //get input from user
   inputCity = req.query.city;
-  console.log(inputCity)
+  //console.log(inputCity)
   getResult(res);
 })
 
@@ -54,7 +54,7 @@ async function getResult(res)
     url: 'https://forward-reverse-geocoding.p.rapidapi.com/v1/forward',
     params: {city: `${inputCity}`, 'accept-language': 'en', polygon_threshold: '0.0'},
     headers: {
-      'X-RapidAPI-Key': 'insertYourApiKey',
+      'X-RapidAPI-Key': '9d5bd35d8dmsh676b10602651945p167251jsn7bbe4e7e72d5',
       'X-RapidAPI-Host': 'forward-reverse-geocoding.p.rapidapi.com'
     }
   };
@@ -62,44 +62,37 @@ async function getResult(res)
   await axios.request(firstRequest).then(function (response) {
       cityLatitude = response.data[0].lat;
       cityLongitude = response.data[0].lon;
-      console.log(response.data[0].lat);
-      console.log(response.data[0].lon);
+      //console.log(response.data[0].lat);
+      //console.log(response.data[0].lon);
     }).catch(function (error) {
   });    
 
   //====HOTELS====
-  //use book.com api to fetch nearby hotels; reference https://rapidapi.com/tipsters/api/booking-com/
-  /* DEFAULT IS SET AS TORONTO */
+   //use Travel Advisor api to fetch nearby hotels; reference https://rapidapi.com/apidojo/api/travel-advisor/
   const secondRequest = {
     method: 'GET',
-    url: 'https://booking-com.p.rapidapi.com/v1/hotels/search-by-coordinates',
+    url: 'https://travel-advisor.p.rapidapi.com/hotels/list-by-latlng',
     params: {
-      order_by: 'distance',
-      adults_number: '1',
-      units: 'metric',
-      room_number: '1',
-      checkout_date: '2022-10-01',
-      filter_by_currency: 'CAD',
-      locale: 'en-us',
-      checkin_date: '2022-09-30',
       latitude: `${cityLatitude}`,
-      // latitude: '43.651070',
       longitude: `${cityLongitude}`,
-      // longitude: '-79.347015',
-      page_number: '1'
+      lang: 'en_US',
+      limit: '16',
+      currency: 'CAD',
+      zff: 'hotel',
+      offset: '30'
     },
     headers: {
-      'X-RapidAPI-Key': 'insertYourApiKey',
-      'X-RapidAPI-Host': 'booking-com.p.rapidapi.com'
+      'X-RapidAPI-Key': '9d5bd35d8dmsh676b10602651945p167251jsn7bbe4e7e72d5',
+      'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com'
     }
   };
-    
+
   await axios.request(secondRequest).then(function (response) {
-    // res.render('index', { title: "Home", hotels: response.data.result})
-    // console.log(response.data.result)
-    hotels = response.data.result;
+    
+    hotels = response.data.data;
+    console.log(response.data.data);
   }).catch(function (error) {
-      console.error(error);
+    console.error(error);
   });
 
   //====ATTRACTIONS====
@@ -117,7 +110,7 @@ async function getResult(res)
       offset: '30'
     },
     headers: {
-      'X-RapidAPI-Key': 'insertYourApiKey',
+      'X-RapidAPI-Key': '9d5bd35d8dmsh676b10602651945p167251jsn7bbe4e7e72d5',
       'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com'
     }
   };
@@ -132,8 +125,3 @@ async function getResult(res)
   res.render('index', { title: "Home", hotels, attractions })
 
 }
-
-
-
-
-
